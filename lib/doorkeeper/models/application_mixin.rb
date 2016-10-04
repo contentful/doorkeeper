@@ -16,9 +16,10 @@ module Doorkeeper
 
       before_validation :generate_uid, :generate_secret, on: :create
 
-      if respond_to?(:attr_accessible)
-        attr_accessible :name, :redirect_uri, :scopes
-      end
+      # rails 4.0 implements attr_accessible but raises an exception
+      # if respond_to?(:attr_accessible)
+      #   attr_accessible :name, :redirect_uri, :scopes
+      # end
     end
 
     module ClassMethods
